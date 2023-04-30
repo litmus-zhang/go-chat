@@ -5,8 +5,12 @@ import (
     "log"
 
     "github.com/gofiber/fiber/v2"
+    "go-chat/src/database"
 )
 
+const (
+    PORT = ":8000"
+)
 func main() {
 	database.Connect()
     app := fiber.New()
@@ -15,5 +19,5 @@ func main() {
         return c.SendString("Hello, World!")
     })
 
-    log.Fatal(app.Listen(":3000"))
+    log.Fatal(app.Listen(PORT))
 }
